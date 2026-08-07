@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portafolio profesional de Erick Hidalgo, Programador y Analista de Sistemas.">
+  <title>Erick Hidalgo | Programador y Analista de Sistemas</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #07111f;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1150px;
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(7, 17, 31, 0.95);
+      border-bottom: 1px solid #1d2b40;
+      backdrop-filter: blur(12px);
+    }
+
+    nav {
+      min-height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #7aa7ff;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    nav ul li a {
+      color: #b8c4d6;
+      font-size: 15px;
+      transition: 0.2s;
+    }
+
+    nav ul li a:hover {
+      color: white;
+    }
+
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      padding: 80px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .small-title {
+      color: #72dfc1;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: clamp(48px, 7vw, 82px);
+      line-height: 1;
+      letter-spacing: -3px;
+      margin-bottom: 26px;
+    }
+
+    .hero-description {
+      max-width: 700px;
+      color: #aebbd0;
+      font-size: 18px;
+      margin-bottom: 14px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: 0.2s;
+      border: 1px solid #293950;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: white;
+      color: #07111f;
+    }
+
+    .btn-secondary {
+      background: #111e31;
+      color: white;
+    }
+
+    .facts {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      color: #8fa0b7;
+      font-size: 14px;
+    }
+
+    .code-card {
+      background: #101d30;
+      border: 1px solid #263750;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 25px 70px rgba(0,0,0,0.35);
+    }
+
+    .code-top {
+      padding: 15px 18px;
+      border-bottom: 1px solid #263750;
+      display: flex;
+      gap: 7px;
+    }
+
+    .circle {
+      width: 10px;
+      height: 10px;
+      background: #4b5a6e;
+      border-radius: 50%;
+    }
+
+    pre {
+      padding: 28px;
+      overflow-x: auto;
+      font-family: Consolas, monospace;
+      color: #dbe5f3;
+      font-size: 14px;
+    }
+
+    .code-blue {
+      color: #7caeff;
+    }
+
+    .code-green {
+      color: #79e2c5;
+    }
+
+    section {
+      padding: 95px 0;
+    }
+
+    .alternate {
+      background: #0b1626;
+      border-top: 1px solid #16253a;
+      border-bottom: 1px solid #16253a;
+    }
+
+    .section-title {
+      font-size: clamp(34px, 5vw, 52px);
+      margin-bottom: 38px;
+      letter-spacing: -2px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 55px;
+    }
+
+    .about-text p {
+      color: #aebbd0;
+      margin-bottom: 18px;
+      font-size: 17px;
+    }
+
+    .info-card {
+      background: #101d30;
+      border: 1px solid #263750;
+      border-radius: 17px;
+      padding: 28px;
+    }
+
+    .info-card h3 {
+      margin-bottom: 17px;
+      font-size: 22px;
+    }
+
+    .info-card ul {
+      padding-left: 20px;
+      color: #aebbd0;
+    }
+
+    .info-card li {
+      margin-bottom: 11px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .skill-card {
+      background: #101d30;
+      border: 1px solid #263750;
+      border-radius: 16px;
+      padding: 26px;
+      min-height: 180px;
+      transition: 0.2s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-4px);
+      border-color: #45668e;
+    }
+
+    .skill-card h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .skill-card p {
+      color: #aebbd0;
+      font-size: 15px;
+    }
+
+    .project-card {
+      background: linear-gradient(135deg, #101d30, #14243c);
+      border: 1px solid #2a3b56;
+      border-radius: 22px;
+      padding: 38px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .project-card h3 {
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .project-card p {
+      color: #aebbd0;
+      margin-bottom: 16px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 20px 0;
+    }
+
+    .tags span {
+      background: #1b2c45;
+      border: 1px solid #2b405e;
+      padding: 7px 11px;
+      border-radius: 999px;
+      font-size: 13px;
+      color: #d7e2f2;
+    }
+
+    .project-preview {
+      min-height: 290px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .fake-window {
+      width: 100%;
+      max-width: 360px;
+      height: 250px;
+      border-radius: 15px;
+      overflow: hidden;
+      background: #edf2f8;
+      box-shadow: 0 25px 60px rgba(0,0,0,.35);
+      transform: rotate(2deg);
+    }
+
+    .fake-header {
+      height: 45px;
+      background: #aebdd1;
+    }
+
+    .fake-body {
+      height: 205px;
+      display: grid;
+      grid-template-columns: 90px 1fr;
+    }
+
+    .fake-sidebar {
+      background: #d6deea;
+    }
+
+    .fake-main {
+      padding: 22px;
+    }
+
+    .fake-line {
+      height: 14px;
+      background: #bdc9d9;
+      border-radius: 20px;
+      margin-bottom: 17px;
+    }
+
+    .fake-line:nth-child(2) {
+      width: 70%;
+    }
+
+    .fake-line:nth-child(3) {
+      width: 90%;
+    }
+
+    .fake-line:nth-child(4) {
+      width: 55%;
+    }
+
+    .second-project {
+      margin-top: 22px;
+      background: #101d30;
+      border: 1px solid #263750;
+      border-radius: 17px;
+      padding: 28px;
+    }
+
+    .second-project p {
+      color: #aebbd0;
+    }
+
+    .education-box {
+      background: #101d30;
+      border: 1px solid #263750;
+      border-radius: 17px;
+      padding: 30px;
+    }
+
+    .education-box h3 {
+      font-size: 23px;
+      margin-bottom: 8px;
+    }
+
+    .education-box p {
+      color: #aebbd0;
+    }
+
+    .contact-box {
+      text-align: center;
+      max-width: 780px;
+      margin: auto;
+    }
+
+    .contact-box p {
+      color: #aebbd0;
+      font-size: 17px;
+    }
+
+    .contact-buttons {
+      justify-content: center;
+    }
+
+    footer {
+      border-top: 1px solid #203149;
+      padding: 32px 0;
+      color: #8494aa;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+
+      nav ul {
+        display: none;
+      }
+
+      .hero-grid,
+      .about-grid,
+      .project-card {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .container {
+        width: 92%;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+
+      h1 {
+        font-size: 48px;
+        letter-spacing: -2px;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card {
+        padding: 24px;
+      }
+
+      .facts {
+        flex-direction: column;
+        gap: 7px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="container">
+
+    <nav>
+
+      <a class="logo" href="#inicio">
+        &lt;Erick /&gt;
+      </a>
+
+      <ul>
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#formacion">Formación</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+
+    </nav>
+
+  </div>
+
+</header>
+
+<main>
+
+<section class="hero" id="inicio">
+
+  <div class="container hero-grid">
+
+    <div>
+
+      <div class="small-title">
+        PROGRAMADOR · ANALISTA DE SISTEMAS
+      </div>
+
+      <h1>
+        Hola, soy<br>
+        Erick Hidalgo.
+      </h1>
+
+      <p class="hero-description">
+        Soy Programador y Analista de Sistemas enfocado en
+        desarrollo de software, aplicaciones web, bases de datos
+        y análisis de sistemas.
+      </p>
+
+      <p class="hero-description">
+        Busco una oportunidad profesional donde pueda aportar
+        mis conocimientos, resolver problemas reales y seguir
+        desarrollándome dentro del área tecnológica.
+      </p>
+
+      <div class="buttons">
+
+        <a class="btn btn-primary" href="#proyectos">
+          Ver proyectos
+        </a>
+
+        <a class="btn btn-secondary" href="#contacto">
+          Contactarme
+        </a>
+
+      </div>
+
+      <div class="facts">
+
+        <span>📍 Chile</span>
+        <span>💻 Disponible para trabajo remoto</span>
+        <span>🎓 Programador / Analista de Sistemas</span>
+
+      </div>
+
+    </div>
+
+    <div class="code-card">
+
+      <div class="code-top">
+        <span class="circle"></span>
+        <span class="circle"></span>
+        <span class="circle"></span>
+      </div>
+
+<pre><span class="code-blue">const</span> developer = {
+
+  name:
+  <span class="code-green">"Erick Hidalgo"</span>,
+
+  profession:
+  <span class="code-green">"Programador"</span>,
+
+  skills: [
+    <span class="code-green">"Web Development"</span>,
+    <span class="code-green">"SQL Server"</span>,
+    <span class="code-green">"Git"</span>,
+    <span class="code-green">"Power BI"</span>,
+    <span class="code-green">"UML"</span>
+  ],
+
+  remoteWork:
+  <span class="code-blue">true</span>,
+
+  motivation:
+  <span class="code-green">"Seguir creciendo"</span>
+
+};</pre>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="sobre-mi" class="alternate">
+
+  <div class="container">
+
+    <div class="small-title">
+      PERFIL PROFESIONAL
+    </div>
+
+    <h2 class="section-title">
+      Sobre mí
+    </h2>
+
+    <div class="about-grid">
+
+      <div class="about-text">
+
+        <p>
+          Soy Programador y Analista de Sistemas con formación
+          en desarrollo de aplicaciones, bases de datos,
+          análisis de requerimientos y modelado de sistemas.
+        </p>
+
+        <p>
+          Tengo conocimientos para trabajar con sistemas web
+          conectados a bases de datos, realizar consultas SQL,
+          analizar requerimientos y estructurar soluciones
+          tecnológicas orientadas a necesidades reales.
+        </p>
+
+        <p>
+          Me interesa especialmente desarrollarme profesionalmente
+          en programación, desarrollo web, análisis de sistemas,
+          automatización, bases de datos y tecnologías cloud.
+        </p>
+
+      </div>
+
+      <div class="info-card">
+
+        <h3>Lo que puedo aportar</h3>
+
+        <ul>
+          <li>Pensamiento lógico y resolución de problemas.</li>
+          <li>Análisis y levantamiento de requerimientos.</li>
+          <li>Desarrollo de sistemas conectados a bases de datos.</li>
+          <li>Modelado de soluciones mediante UML.</li>
+          <li>Control de versiones con Git.</li>
+          <li>Capacidad de aprendizaje y adaptación.</li>
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="habilidades">
+
+  <div class="container">
+
+    <div class="small-title">
+      STACK TECNOLÓGICO
+    </div>
+
+    <h2 class="section-title">
+      Habilidades técnicas
+    </h2>
+
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <h3>💻 Desarrollo Web</h3>
+        <p>HTML, CSS, JavaScript y construcción de aplicaciones web.</p>
+      </div>
+
+      <div class="skill-card">
+        <h3>🗄️ SQL Server</h3>
+        <p>Consultas SQL, procedimientos almacenados y modelado de bases de datos.</p>
+      </div>
+
+      <div class="skill-card">
+        <h3>📐 UML</h3>
+        <p>Modelado de sistemas y representación estructurada de soluciones.</p>
+      </div>
+
+      <div class="skill-card">
+        <h3>🔍 Análisis de Sistemas</h3>
+        <p>Levantamiento de requerimientos y análisis de necesidades.</p>
+      </div>
+
+      <div class="skill-card">
+        <h3>🔧 Git y GitHub</h3>
+        <p>Control de versiones y gestión de repositorios.</p>
+      </div>
+
+      <div class="skill-card">
+        <h3>📊 Power BI</h3>
+        <p>Visualización de datos y creación de dashboards.</p>
+      </div>
+
+      <div class="skill-card">
+        <h3>☁️ AWS</h3>
+        <p>Conocimientos de EC2, S3, RDS y Lambda.</p>
+      </div>
+
+      <div class="skill-card">
+        <h3>🐳 Docker</h3>
+        <p>Conocimientos de contenedores y despliegue.</p>
+      </div>
+
+      <div class="skill-card">
+        <h3>⚙️ CI/CD</h3>
+        <p>GitHub Actions, GitLab CI y Jenkins.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="proyectos" class="alternate">
+
+  <div class="container">
+
+    <div class="small-title">
+      PORTAFOLIO
+    </div>
+
+    <h2 class="section-title">
+      Proyectos
+    </h2>
+
+    <div class="project-card">
+
+      <div>
+
+        <div class="small-title">
+          PROYECTO DESTACADO
+        </div>
+
+        <h3>
+          Sistema de Ficha Médica
+        </h3>
+
+        <p>
+          Proyecto orientado a la gestión de información
+          asociada a fichas médicas mediante un sistema
+          estructurado y conectado a una base de datos.
+        </p>
+
+        <p>
+          Este proyecto demuestra conocimientos de
+          desarrollo de software, manejo de información,
+          lógica de negocio, análisis de requerimientos
+          y bases de datos.
+        </p>
+
+        <div class="tags">
+          <span>Desarrollo Web</span>
+          <span>SQL</span>
+          <span>Base de Datos</span>
+          <span>Git</span>
+          <span>Análisis</span>
+        </div>
+
+        <div class="buttons">
+
+          <a
+            href="https://arickseven777.github.io/pro402-ficha-medica/"
+            target="_blank"
+            class="btn btn-primary"
+          >
+            Ver Demo
+          </a>
+
+          <a
+            href="https://github.com/arickseven777/pro402-ficha-medica"
+            target="_blank"
+            class="btn btn-secondary"
+          >
+            Ver código en GitHub
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="project-preview">
+
+        <div class="fake-window">
+
+          <div class="fake-header"></div>
+
+          <div class="fake-body">
+
+            <div class="fake-sidebar"></div>
+
+            <div class="fake-main">
+              <div class="fake-line"></div>
+              <div class="fake-line"></div>
+              <div class="fake-line"></div>
+              <div class="fake-line"></div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="second-project">
+
+      <h3>Próximos proyectos</h3>
+
+      <p>
+        Aquí puedes ir agregando nuevos proyectos para fortalecer tu portafolio.
+      </p>
+
+      <div class="tags">
+        <span>API REST</span>
+        <span>Aplicación CRUD</span>
+        <span>Power BI</span>
+        <span>AWS</span>
+        <span>Sistema Web</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="formacion">
+
+  <div class="container">
+
+    <div class="small-title">
+      EDUCACIÓN
+    </div>
+
+    <h2 class="section-title">
+      Formación
+    </h2>
+
+    <div class="education-box">
+
+      <h3>
+        Programador y Analista de Sistemas
+      </h3>
+
+      <p>
+        Formación profesional enfocada en programación,
+        desarrollo de software, bases de datos,
+        análisis de sistemas y tecnologías de información.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="contacto" class="alternate">
+
+  <div class="container contact-box">
+
+    <div class="small-title">
+      CONTACTO
+    </div>
+
+    <h2 class="section-title">
+      ¿Buscas un programador?
+    </h2>
+
+    <p>
+      Actualmente estoy abierto a oportunidades profesionales
+      relacionadas con desarrollo de software,
+      programación, análisis de sistemas,
+      bases de datos y tecnologías de información.
+    </p>
+
+    <div class="buttons contact-buttons">
+
+      <a
+        href="mailto:TU_CORREO@gmail.com"
+        class="btn btn-primary"
+      >
+        Enviarme un correo
+      </a>
+
+      <a
+        href="https://github.com/arickseven777"
+        target="_blank"
+        class="btn btn-secondary"
+      >
+        Ver mi GitHub
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+<footer>
+
+  <div class="container">
+    © 2026 Erick Hidalgo · Programador y Analista de Sistemas
+  </div>
+
+</footer>
+
+</body>
+</html>
